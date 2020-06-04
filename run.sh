@@ -33,10 +33,10 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 lint1() {
-    if node ipso-odm/odmlint/odmlint.js "$1" "$2" >out
+    if node tools/sdflint/sdflint.js "$1" "$2" >out
     then :
     else echo "---"
-         echo "schema: $3"
+         echo "syntax: $3"
          echo "file: '$i'"
          printf "errors: "
          cat out
@@ -46,19 +46,20 @@ lint1() {
 
 case $# in
     0)
-        git clone --depth 1 http://github.com/EricssonResearch/ipso-odm
-        (cd ipso-odm/odmlint; npm install)
-        find . -name \*.json -exec ./run.sh \{\} \;
+        git clone --depth 1 http://github.com/one-data-model/tools
+        (cd tools/sdflint; npm install)
+        find . -name \*.sdf.json -exec ./run.sh \{\} \;
         ;;
     *)
         for i
         do
             case "$i" in
-                ./ipso-odm/*) ;;
+                ./sdflint/*) ;;
                 ./package-lock.json) ;;
                 *)
-                    lint1 "$i" ipso-odm/sdf-schema.json base
-                    lint1 "$i" ipso-odm/sdf-alt-schema.json alt
+                    lint1 "$i" sdf-framework.jso.json "SDF framework syntax"
+                    lint1 "$i" sdf-validation.jso.json "SDF validation syntax"
+                    echo $i
             esac
         done
 esac
