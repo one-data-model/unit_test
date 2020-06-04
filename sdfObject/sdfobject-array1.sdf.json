@@ -1,0 +1,26 @@
+{
+  "info": {
+    "copyright": "Copyright 2018-2019 Open Connectivity Foundation, Inc. All rights reserved.",
+    "license": "https://github.com/one-data-model/oneDM/blob/master/LICENSE",
+    "title": "array1",
+    "version": "2019-02-22"
+  },
+  "sdfObject": {
+    "array1": {
+      "sdfProperty": {
+        "supporteddirections": {
+          "name": "supporteddirections",
+          "description": "max items less than min items.",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 15,
+          "maxItems": 10,
+          "uniqueItems": true,
+          "writable": false,
+          "type": "array"
+        }
+      }
+    }
+  }
+}

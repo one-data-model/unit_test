@@ -1,0 +1,22 @@
+{
+  "info": {
+    "copyright": "Copyright 2018-2019 Open Connectivity Foundation, Inc. All rights reserved.",
+    "license": "https://github.com/one-data-model/oneDM/blob/master/LICENSE",
+    "title": "Binary Switch",
+    "version": "2019-02-22"
+  },
+  "sdfObject": {
+    "switch.binary": {
+      "description": "incorrect required",
+      "odmProperty": {
+        "value": {
+          "name": "value",
+          "type": "boolean"
+        }
+      },
+      "sdfRequired": [
+        "0/sdfProperty/value2"
+      ]
+    }
+  }
+}
